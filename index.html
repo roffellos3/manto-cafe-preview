@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MANTO — kierunki projektowe</title>
+<style>
+  :root{
+    --bg:#F2F1EF; --ink:#141917; --sub:#5c6360; --line:#d8d7d2;
+    --green:#17352E; --cream:#EFE9DF; --card:#fbfaf8;
+    --serif:Didot,"Bodoni 72","Playfair Display",Georgia,serif;
+    --grot:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#101312; --ink:#EDEAE3; --sub:#9aa19d; --line:#2a2f2c; --card:#181c1a; }
+  }
+  :root[data-theme="dark"]{ --bg:#101312; --ink:#EDEAE3; --sub:#9aa19d; --line:#2a2f2c; --card:#181c1a; }
+  :root[data-theme="light"]{ --bg:#F2F1EF; --ink:#141917; --sub:#5c6360; --line:#d8d7d2; --card:#fbfaf8; }
+  *{box-sizing:border-box}
+  body{ background:var(--bg); color:var(--ink); font:16px/1.6 var(--grot); margin:0; padding:clamp(28px,6vw,80px); }
+  .wrap{ max-width:900px; margin:0 auto; }
+  .mast{ display:flex; align-items:baseline; gap:.1em; font-size:1.15rem; margin-bottom:clamp(36px,6vh,64px); }
+  .mast b{ font-weight:800; letter-spacing:-.01em; } .mast i{ font-family:var(--serif); font-style:italic; font-size:1.2em; }
+  .mast sup{ font-size:.42em; transform:translateY(-.9em); }
+  h1{ font:italic 400 clamp(2.3rem,5.5vw,3.7rem)/1.06 var(--serif); margin:0 0 .4em; text-wrap:balance; }
+  .lede{ color:var(--sub); max-width:60ch; margin:0 0 3rem; font-size:1.02rem; }
+  a.card{ display:grid; grid-template-columns:auto 1fr auto; gap:1.4rem; align-items:center; text-decoration:none; color:inherit;
+    background:var(--card); border:1px solid var(--line); padding:1.5rem clamp(1.25rem,3vw,2rem); margin:0 0 1rem;
+    transition:border-color .18s ease, transform .18s ease; }
+  a.card:hover{ border-color:var(--green); transform:translateY(-2px); }
+  a.card:focus-visible{ outline:2px solid var(--green); outline-offset:3px; }
+  a.card.lead{ border-color:var(--green); border-width:1.5px; }
+  .chip{ width:60px; height:60px; border-radius:3px; flex:none; }
+  .ct h2{ font-size:1.1rem; margin:0 0 .35rem; letter-spacing:.01em; }
+  .ct h2 .lt{ font:italic 400 1.5rem/1 var(--serif); margin-right:.5rem; }
+  .ct p{ margin:0; color:var(--sub); font-size:.93rem; max-width:52ch; }
+  .tag{ font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--green); font-weight:700;
+    border:1px solid var(--green); border-radius:2px; padding:5px 9px; white-space:nowrap; }
+  .arrow{ font-size:1.3rem; color:var(--sub); }
+  .note{ border-top:1px solid var(--line); margin-top:2.75rem; padding-top:1.4rem; color:var(--sub); font-size:.86rem; max-width:66ch; }
+  @media (max-width:600px){ a.card{ grid-template-columns:auto 1fr; } .chip{ width:46px; height:46px; } .tag,.arrow{ display:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="mast"><b>MANTO</b><i>CAFE</i><sup>®</sup></span>
+  <h1>Brazylia Monte Carmelo — trzy kierunki</h1>
+  <p class="lede">Sklep jednoproduktowy dla kawy ziarnistej MANTO. Poniżej rekomendowany kierunek oraz dwie alternatywy. Każda pozycja to kompletna, przewijalna strona — najlepiej oglądać na desktopie, ale działa też na telefonie. Ceny i przyciski „Kup teraz" to makiety do czasu podpięcia Shopify.</p>
+
+  <a class="card lead" href="f.html">
+    <span class="chip" style="background:linear-gradient(158deg,#A7ABAE 38%,#17352E 78%)"></span>
+    <span class="ct">
+      <h2><span class="lt">F</span> Studio</h2>
+      <p>Minimalistyczne hero jak na stronie kawiarni: torebka na tle studyjnego gradientu, wielkie „Brazylia" za produktem, a zawieszka z ceny obraca się po najechaniu i odsłania „Kup teraz". Wszystkie detale pod linią zgięcia.</p>
+    </span>
+    <span class="tag">Rekomendacja</span>
+  </a>
+
+  <a class="card" href="d.html">
+    <span class="chip" style="background:linear-gradient(158deg,#E8EAEA 20%,#C7CBCD 45%,#17352E 78%)"></span>
+    <span class="ct">
+      <h2><span class="lt">D</span> Halftone</h2>
+      <p>Strona zbudowana z języka opakowania: metaliczne srebro, leśna zieleń, rastrowe przejścia i mocna typografia plakatowa. Najodważniejszy kierunek.</p>
+    </span>
+    <span class="arrow">→</span>
+  </a>
+
+  <a class="card" href="e.html">
+    <span class="chip" style="background:linear-gradient(158deg,#F2F1EF 55%,#17352E 55%)"></span>
+    <span class="ct">
+      <h2><span class="lt">E</span> Sklep</h2>
+      <p>Klasyczny, luksusowy układ produktowy: przyklejone zdjęcie po lewej, kolumna zakupu po prawej. Spokojny i konwersyjny.</p>
+    </span>
+    <span class="arrow">→</span>
+  </a>
+
+  <p class="note">Wersja robocza do konsultacji. Typografia display korzysta z fontów systemowych (Didot / Bodoni) — na urządzeniach Apple wygląda docelowo; na innych podstawiany jest zbliżony krój. Ostateczne fonty i płatności wpinamy przy wdrożeniu produkcyjnym.</p>
+</div>
+</body>
+</html>
