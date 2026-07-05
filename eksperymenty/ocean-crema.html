@@ -197,9 +197,9 @@
   const qs = new URLSearchParams(location.search);
   if (reduce || qs.get('motion') === 'off' || qs.get('ocean') === 'off') return;
 
-  const AMP    = parseFloat(qs.get('amp')    ?? '1');   // displacement strength ×
-  const SPEED  = parseFloat(qs.get('speed')  ?? '1');   // time scale ×
-  const SHIMR  = parseFloat(qs.get('shimmer')?? '1');   // highlight breathing ×
+  const AMP    = parseFloat(qs.get('amp')    ?? '1.7'); // displacement strength ×
+  const SPEED  = parseFloat(qs.get('speed')  ?? '1.2'); // time scale ×
+  const SHIMR  = parseFloat(qs.get('shimmer')?? '1.3'); // highlight breathing ×
 
   const section = document.querySelector('.wklejka');
   const img = section && section.querySelector('img');
