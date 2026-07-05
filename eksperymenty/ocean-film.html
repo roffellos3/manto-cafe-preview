@@ -206,8 +206,8 @@
   video.setAttribute('muted','');
   video.setAttribute('playsinline','');
   video.setAttribute('aria-hidden','true');
-  video.poster = '../img/ocean-film-poster.webp';
-  video.src = '../img/ocean-film-720.mp4';
+  video.poster = '../img/ocean-film-calm-poster.webp';
+  video.src = '../img/ocean-film-calm-720.mp4';
   Object.assign(video.style, {position:'absolute', inset:'0', width:'100%', height:'100%',
                               objectFit:'cover', opacity:'0', transition:'opacity 2.5s ease'});
   video.addEventListener('error', () => video.remove(), {once:true}); // no film -> still image stays
