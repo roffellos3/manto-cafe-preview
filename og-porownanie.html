@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OG / social card — porównanie kandydatów</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root{ --bg:#F2F1EF; --ink:#141917; --sub:#5c6360; --line:#d8d7d2; --green:#17352E; }
+  @media (prefers-color-scheme: dark){ :root{ --bg:#101312; --ink:#EDEAE3; --sub:#9aa19d; --line:#2a2f2c; } }
+  body{ background:var(--bg); color:var(--ink); font:16px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif; margin:0; padding:clamp(24px,5vw,64px); }
+  .wrap{ max-width:980px; margin:0 auto; }
+  a.back{ font-size:.82rem; color:var(--sub); text-decoration:none; } a.back:hover{ color:var(--green); }
+  h1{ font:italic 400 clamp(1.9rem,4.5vw,3rem)/1.1 Didot,"Bodoni 72",Georgia,serif; margin:.4em 0 .2em; }
+  p.lede{ color:var(--sub); max-width:64ch; margin:0 0 2.2rem; }
+  .card{ margin:0 0 2.2rem; }
+  .card img{ width:100%; height:auto; display:block; border:1px solid var(--line); }
+  .card h2{ font-size:.95rem; margin:.7rem 0 .15rem; }
+  .card p{ margin:0; color:var(--sub); font-size:.88rem; max-width:70ch; }
+  .thumb{ margin-top:.6rem; } .thumb img{ width:120px; border:1px solid var(--line); }
+  .thumb span{ font-size:.72rem; color:var(--sub); display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">← Powrót do przeglądu</a>
+  <h1>Social card (OG) — kandydaci</h1>
+  <p class="lede">Ten obrazek pokazuje się, gdy ktoś wysyła link do sklepu (Messenger/IG/iMessage/LinkedIn). Miniatura obok każdego pokazuje, jak czyta się w małej skali. Wybieramy jeden.</p>
+
+  <div class="card"><img src="og/gpt-v04.jpg" alt="GPT v04 — torebka na tle rastra"><h2>GPT v04 — raster halftone + produkt</h2><p>Prawdziwa torebka, rastrowe przejście z opakowania, pełna hierarchia typograficzna. Faworyt nocnej rundy.</p><div class="thumb"><img src="og/gpt-v04.jpg" alt=""><span>~120 px</span></div></div>
+  <div class="card"><img src="og/v2-studio.jpg" alt="v2 studio"><h2>v2 — studio (Fable)</h2><p>Studyjny gradient, wielkie „Brazylia" za torebką — najbliżej hero strony.</p><div class="thumb"><img src="og/v2-studio.jpg" alt=""><span>~120 px</span></div></div>
+  <div class="card"><img src="og/v3-dark.jpg" alt="v3 dark"><h2>v3 — dark (Fable)</h2><p>Rejestr nocny — czarny grunt, krem. Najbardziej dramatyczny; szczęśliwy wypadek renderera, zachowany celowo.</p><div class="thumb"><img src="og/v3-dark.jpg" alt=""><span>~120 px</span></div></div>
+  <div class="card"><img src="og/gpt-v01.jpg" alt="GPT v01"><h2>GPT v01 — studio z podium</h2><p>Czysty studyjny grunt, typografia lewa/dół.</p><div class="thumb"><img src="og/gpt-v01.jpg" alt=""><span>~120 px</span></div></div>
+  <div class="card"><img src="og/gpt-v02.jpg" alt="GPT v02"><h2>GPT v02</h2><p>Wariant kompozycji GPT.</p><div class="thumb"><img src="og/gpt-v02.jpg" alt=""><span>~120 px</span></div></div>
+  <div class="card"><img src="og/gpt-v03.jpg" alt="GPT v03"><h2>GPT v03</h2><p>Wariant kompozycji GPT.</p><div class="thumb"><img src="og/gpt-v03.jpg" alt=""><span>~120 px</span></div></div>
+  <div class="card"><img src="og/v1-trojkat.jpg" alt="v1 trójkąt"><h2>v1 — trójkąt (obecny placeholder)</h2><p>Znak zastępczy z uruchomienia scaffoldu — do zastąpienia.</p><div class="thumb"><img src="og/v1-trojkat.jpg" alt=""><span>~120 px</span></div></div>
+</div>
+</body>
+</html>
