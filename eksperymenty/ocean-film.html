@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="pl"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>OCEAN CREMA · żywa wklejka (WebGL) — MANTOCAFE</title><meta name="description" content="Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu."><link rel="canonical" href="https://sklep.mantocafe.pl/"><meta name="theme-color" content="#17352E"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.ico" sizes="any"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><meta property="og:type" content="website"><meta property="og:site_name" content="MANTOCAFE"><meta property="og:locale" content="pl_PL"><meta property="og:title" content="MANTOCAFE — Brazylia Monte Carmelo"><meta property="og:description" content="Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu."><meta property="og:url" content="https://sklep.mantocafe.pl/"><meta property="og:image" content="https://sklep.mantocafe.pl/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="MANTOCAFE — Brazylia Monte Carmelo"><meta name="twitter:description" content="Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu."><meta name="twitter:image" content="https://sklep.mantocafe.pl/og-image.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Brazylia Monte Carmelo","description":"Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu.","image":"https://sklep.mantocafe.pl/og-image.jpg","brand":{"@type":"Brand","name":"MANTOCAFE"},"offers":{"@type":"Offer","price":59,"priceCurrency":"PLN","availability":"https://schema.org/InStock","url":"https://sklep.mantocafe.pl/"}}</script><!-- Self-hosted Didone fallback (B1): Apple devices keep native Didot/Bodoni 72
+<!DOCTYPE html><html lang="pl"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>OCEAN CREMA · żywa wklejka (FILM) — MANTOCAFE</title><meta name="description" content="Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu."><link rel="canonical" href="https://sklep.mantocafe.pl/"><meta name="theme-color" content="#17352E"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon.ico" sizes="any"><link rel="apple-touch-icon" href="../apple-touch-icon.png"><meta property="og:type" content="website"><meta property="og:site_name" content="MANTOCAFE"><meta property="og:locale" content="pl_PL"><meta property="og:title" content="MANTOCAFE — Brazylia Monte Carmelo"><meta property="og:description" content="Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu."><meta property="og:url" content="https://sklep.mantocafe.pl/"><meta property="og:image" content="https://sklep.mantocafe.pl/og-image.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="MANTOCAFE — Brazylia Monte Carmelo"><meta name="twitter:description" content="Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu."><meta name="twitter:image" content="https://sklep.mantocafe.pl/og-image.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Brazylia Monte Carmelo","description":"Kawa ziarnista MANTOCAFE — 100% Arabica, 250 g. Cerrado Mineiro, Brazylia; obróbka natural, nuty mlecznej czekolady, orzecha laskowego i karmelu.","image":"https://sklep.mantocafe.pl/og-image.jpg","brand":{"@type":"Brand","name":"MANTOCAFE"},"offers":{"@type":"Offer","price":59,"priceCurrency":"PLN","availability":"https://schema.org/InStock","url":"https://sklep.mantocafe.pl/"}}</script><!-- Self-hosted Didone fallback (B1): Apple devices keep native Didot/Bodoni 72
          (listed first in the stacks); everyone else gets Playfair Display instead of
          Georgia. Subset: latin + PL diacritics + №/→/·/® (see src/assets/fonts/README). --><link rel="preload" href="/fonts/playfair-italic-400.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/playfair-400.woff2" as="font" type="font/woff2" crossorigin><style>
       @font-face{font-family:"Playfair Display";src:url(missing.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
@@ -191,147 +191,43 @@
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   setTimeout(()=>document.querySelectorAll('.rv').forEach(el=>el.classList.add('in')),1600); // safety net: content may never stay hidden
 </script>  
-<script id="ocean-crema-js">
+<script id="ocean-film-js">
 (() => {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const qs = new URLSearchParams(location.search);
-  if (reduce || qs.get('motion') === 'off' || qs.get('ocean') === 'off') return;
-
-  const AMP    = parseFloat(qs.get('amp')    ?? '1.7'); // displacement strength ×
-  const SPEED  = parseFloat(qs.get('speed')  ?? '1.2'); // time scale ×
-  const SHIMR  = parseFloat(qs.get('shimmer')?? '1.3'); // highlight breathing ×
+  if (reduce || qs.get('motion') === 'off' || qs.get('film') === 'off') return;
 
   const section = document.querySelector('.wklejka');
   const img = section && section.querySelector('img');
   if (!section || !img) return;
 
-  const canvas = document.createElement('canvas');
-  Object.assign(canvas.style, {position:'absolute', inset:'0', width:'100%', height:'100%',
-                               opacity:'0', transition:'opacity 1.2s ease'});
-  canvas.setAttribute('aria-hidden','true');
-  const gl = canvas.getContext('webgl', {antialias:false, alpha:false,
-                                         powerPreference:'low-power'});
-  if (!gl) return;                       // no WebGL → still image stays
-  section.appendChild(canvas);
+  const video = document.createElement('video');
+  video.muted = true; video.loop = true; video.autoplay = true; video.preload = 'auto';
+  video.setAttribute('muted','');
+  video.setAttribute('playsinline','');
+  video.setAttribute('aria-hidden','true');
+  video.poster = '../img/ocean-film-poster.webp';
+  video.src = '../img/ocean-film-720.mp4';
+  Object.assign(video.style, {position:'absolute', inset:'0', width:'100%', height:'100%',
+                              objectFit:'cover', opacity:'0', transition:'opacity 1.2s ease'});
+  video.addEventListener('error', () => video.remove(), {once:true}); // no film -> still image stays
+  section.appendChild(video);
 
-  const VS = `attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }`;
-  const FS = `
-precision mediump float;
-uniform sampler2D tex; uniform vec2 res, texScale, texOff; uniform float t, amp, shim;
+  // vignette above the film: top/bottom fade into the band ink + soft edge falloff
+  const vg = document.createElement('div');
+  vg.setAttribute('aria-hidden','true');
+  Object.assign(vg.style, {position:'absolute', inset:'0', pointerEvents:'none',
+    background:'linear-gradient(180deg,#0B0B0B 0%,rgba(11,11,11,0) 16%,rgba(11,11,11,0) 84%,#0B0B0B 100%), radial-gradient(120% 95% at 50% 50%, rgba(11,11,11,0) 60%, rgba(11,11,11,.5) 100%)'});
+  section.appendChild(vg);
 
-// Ashima-style 2D simplex noise (compact)
-vec3 permute(vec3 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
-float snoise(vec2 v){
-  const vec4 C = vec4(0.211324865405187, 0.366025403784439,
-                     -0.577350269189626, 0.024390243902439);
-  vec2 i = floor(v + dot(v, C.yy));
-  vec2 x0 = v - i + dot(i, C.xx);
-  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
-  vec4 x12 = x0.xyxy + C.xxzz; x12.xy -= i1;
-  i = mod(i, 289.0);
-  vec3 pp = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
-  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
-  m = m*m; m = m*m;
-  vec3 x = 2.0 * fract(pp * C.www) - 1.0;
-  vec3 h = abs(x) - 0.5;
-  vec3 ox = floor(x + 0.5);
-  vec3 a0 = x - ox;
-  m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
-  vec3 g;
-  g.x = a0.x * x0.x + h.x * x0.y;
-  g.yz = a0.yz * x12.xz + h.yz * x12.yw;
-  return 130.0 * dot(m, g);
-}
+  const show = () => { video.style.opacity = '1'; };
+  (video.readyState >= 3) ? show() : video.addEventListener('canplay', show, {once:true});
 
-void main(){
-  vec2 frag = gl_FragCoord.xy / res;          // 0..1 section space, y up
-  vec2 uv = frag * texScale + texOff;         // CSS cover mapping
-  uv.y = 1.0 - uv.y;
-
-  // ocean swell: two slow travelling noise fields, domain-warped
-  vec2 w = uv * vec2(3.2, 2.4);
-  float t1 = t * 0.055, t2 = t * 0.038;
-  float n1 = snoise(w + vec2(t1,  t1 * 0.6));
-  float n2 = snoise(w * 1.9 - vec2(t2 * 1.3, t2) + n1 * 0.35);
-
-  // displace more where the image is bright (liquid), leave the void still
-  float lum0 = dot(texture2D(tex, uv).rgb, vec3(0.299, 0.587, 0.114));
-  float mask = smoothstep(0.04, 0.35, lum0);
-  vec2 disp = vec2(n1 + 0.5 * n2, n2 - 0.4 * n1) * 0.006 * amp * mask;
-
-  vec3 col = texture2D(tex, uv + disp).rgb;
-
-  // highlights breathe like light catching a swell
-  float lum = dot(col, vec3(0.299, 0.587, 0.114));
-  col *= 1.0 + shim * 0.10 * n2 * smoothstep(0.35, 0.85, lum);
-
-  gl_FragColor = vec4(col, 1.0);
-}`;
-
-  function shader(type, src){ const s = gl.createShader(type); gl.shaderSource(s, src);
-    gl.compileShader(s); return s; }
-  const prog = gl.createProgram();
-  gl.attachShader(prog, shader(gl.VERTEX_SHADER, VS));
-  gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FS));
-  gl.linkProgram(prog);
-  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-  gl.useProgram(prog);
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
-  const loc = gl.getAttribLocation(prog, 'p');
-  gl.enableVertexAttribArray(loc);
-  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-
-  const U = n => gl.getUniformLocation(prog, n);
-  const tex = gl.createTexture();
-
-  function uploadTexture(){
-    gl.bindTexture(gl.TEXTURE_2D, tex);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, img);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-  }
-
-  function resize(){
-    const dpr = Math.min(devicePixelRatio || 1, 1.5);
-    const w = section.clientWidth, h = section.clientHeight;
-    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.uniform2f(U('res'), canvas.width, canvas.height);
-    // CSS cover mapping: section rect -> texture uv
-    const iw = img.naturalWidth, ih = img.naturalHeight;
-    const s = Math.max(w / iw, h / ih);
-    const dw = iw * s, dh = ih * s;
-    gl.uniform2f(U('texScale'), w / dw, h / dh);
-    gl.uniform2f(U('texOff'), (1 - w / dw) / 2, (1 - h / dh) / 2);
-  }
-
-  let running = false, raf = 0;
-  const t0 = performance.now();
-  function frame(){
-    if (!running) return;
-    gl.uniform1f(U('t'), (performance.now() - t0) / 1000 * SPEED);
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
-    raf = requestAnimationFrame(frame);
-  }
-
-  function start(){
-    uploadTexture(); resize();
-    gl.uniform1f(U('amp'), AMP); gl.uniform1f(U('shim'), SHIMR);
-    canvas.style.opacity = '1';
-    new IntersectionObserver(es => {
-      const vis = es[0].isIntersecting;
-      if (vis && !running){ running = true; frame(); }
-      if (!vis && running){ running = false; cancelAnimationFrame(raf); }
-    }).observe(section);
-    addEventListener('resize', resize);
-  }
-  (img.complete && img.naturalWidth) ? start() : img.addEventListener('load', start);
+  new IntersectionObserver(es => {
+    const vis = es[0].isIntersecting;
+    if (vis) video.play().catch(()=>{}); else video.pause();
+  }).observe(section);
 })();
 </script>
 
-<a id="ab-chip" href="ocean-film.html" style="position:fixed;right:14px;bottom:14px;z-index:99;font:11px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;color:#cfd8d3;background:rgba(14,18,16,.78);border:1px solid rgba(207,216,211,.25);padding:9px 12px;border-radius:999px;text-decoration:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)">A/B → FILM</a></body></html>
+<a id="ab-chip" href="ocean-crema.html" style="position:fixed;right:14px;bottom:14px;z-index:99;font:11px/1 ui-monospace,Menlo,monospace;letter-spacing:.08em;color:#cfd8d3;background:rgba(14,18,16,.78);border:1px solid rgba(207,216,211,.25);padding:9px 12px;border-radius:999px;text-decoration:none;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)">A/B → WEBGL</a></body></html>
