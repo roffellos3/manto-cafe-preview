@@ -89,7 +89,7 @@
   /* buy module lives on the green ground — flip the controls to cream */
   .buy2{max-width:1200px;margin:clamp(64px,10vh,110px) auto 0}
   a.brand-line{display:inline-block;text-decoration:none;color:var(--cream);cursor:pointer}
-      .qty{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+      .qty{display:flex;align-items:center;gap:16px;margin:0}
   .qty button{width:44px;height:44px;display:grid;place-items:center;background:none;
     border:1px solid rgba(239,233,223,.34);border-radius:999px;color:var(--cream);cursor:pointer;padding:0;
     transition:border-color var(--dur-tap) var(--ease),background var(--dur-tap) var(--ease),color var(--dur-tap) var(--ease),opacity var(--dur-tap) var(--ease)}
@@ -103,7 +103,7 @@
     color:rgba(239,233,223,.9);font-variant-numeric:tabular-nums}
     .buyrow{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:26px}
   .bl-cta{position:relative;font:600 .9rem/1 var(--grot);letter-spacing:.22em;text-transform:uppercase;
-    color:rgba(239,233,223,.95);text-decoration:none;padding:12px 2px 9px;white-space:nowrap}
+    color:rgba(239,233,223,.95);text-decoration:none;padding:9px 2px;white-space:nowrap}
   .bl-cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--cream);
     transform:scaleX(0);transform-origin:0 50%;transition:transform var(--dur-slide) var(--ease)}
   .bl-cta:hover::after,.brand-line:hover~.buyrow .bl-cta::after{transform:scaleX(1)}
