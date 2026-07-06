@@ -60,7 +60,18 @@
   @media (hover:none){.flipin{transform:scale(1.02) rotateY(180deg)}}
   .cat{position:relative;z-index:2;margin-top:clamp(12px,2.5vh,24px);font:600 .72rem/1.5 var(--grot);letter-spacing:.26em;text-transform:uppercase;color:rgba(239,233,223,.85);text-align:center}
   /* quiet price anchor under the stage so the price is always visible at rest */
-  .heroline{position:relative;z-index:2;margin-top:clamp(10px,2vh,18px);font:600 .78rem/1 var(--grot);letter-spacing:.24em;
+  .buyzone{position:relative;z-index:2;margin-top:clamp(10px,2vh,18px);display:grid;justify-items:center;align-items:center}
+  .buyzone>*{grid-area:1/1}
+  .buyzone .heroline{transition:opacity var(--dur-slide) var(--ease),transform var(--dur-slide) var(--ease),visibility 0s linear 0s}
+  .qopen .heroline{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px);transition:opacity var(--dur-slide) var(--ease),transform var(--dur-slide) var(--ease),visibility 0s linear var(--dur-slide)}
+  .heroqty{opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity var(--dur-slide) var(--ease),transform var(--dur-slide) var(--ease),visibility 0s linear var(--dur-slide);margin:0}
+  .qopen .heroqty{opacity:1;visibility:visible;transform:none;transition:opacity var(--dur-slide) var(--ease),transform var(--dur-slide) var(--ease),visibility 0s linear 0s}
+  .hgo{font:600 .78rem/1 var(--grot);letter-spacing:.24em;text-transform:uppercase;color:rgba(239,233,223,.95);
+    text-decoration:none;border-bottom:1px solid rgba(239,233,223,.4);padding:12px 2px 5px;margin-left:8px;white-space:nowrap;
+    transition:color var(--dur-hint) var(--ease),border-color var(--dur-hint) var(--ease)}
+  .hgo:hover{color:#fff;border-color:var(--cream)}
+  .hgo em{font-style:normal}
+  .heroline{position:relative;z-index:2;font:600 .78rem/1 var(--grot);letter-spacing:.24em;
     text-transform:uppercase;color:rgba(239,233,223,.95);text-decoration:none;border-bottom:1px solid rgba(239,233,223,.4);
     padding-bottom:5px;transition:border-color var(--dur-tap) var(--ease),color var(--dur-tap) var(--ease)}
   .heroline:hover{color:#fff;border-color:var(--cream)}
@@ -203,13 +214,13 @@
     html{scroll-behavior:auto}
     .js .l1,.js .l2,.js .l3{opacity:1;animation:none!important}
     .js .rv{opacity:1;transform:none;transition:none}
-    .flipin,.heroline{transition:none}
+    .flipin,.heroline,.heroqty{transition:none}
     .js .rv.in{transition:none}
     .bl-price,.bl-price em,.brand-line .q{transition:none}
     .scrollhint svg{animation:none}
   }
 
-</style></head> <body>    <main> <section class="hero" aria-label="Brazylia Monte Carmelo — kup kawę"> <h1 class="sr-only">Brazylia Monte Carmelo — kawa ziarnista 100% Arabica | MANTOCAFE</h1> <a class="wm hero-wm" href="/" aria-label="MANTO CAFE — strona główna"><b>MANTO</b><i>CAFE</i><sup>®</sup></a> <div class="stage"> <span class="word l1" aria-hidden="true">Brazylia</span> <div class="bagwrap l2"><img src="../img/bag-cutout.webp" width="618" height="1100" alt="Opakowanie kawy MANTO CAFE — srebrna torebka z rastrem przechodzącym w zieleń, zawieszka Brazylia Monte Carmelo" fetchpriority="high"><a class="fliptag" href="#kup" data-checkout id="maincta" aria-label="Brazylia Monte Carmelo — kup teraz, 59 zł"><span class="flipin"><span class="ftf"><img src="../img/fliptag-front.webp" alt="" fetchpriority="high"></span><span class="ftb" aria-hidden="true"><span class="btxt"><em>Kup teraz</em><span class="brule"></span><b>59 zł</b></span></span></span></a></div> </div> <p class="cat l3">Kawa ziarnista · 100% Arabica</p> <a class="heroline l3" href="#kup" data-checkout>59 zł — kup teraz</a> <span class="scrollhint" aria-hidden="true"><svg width="10" height="25" viewBox="0 0 14 34" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 0v31M1.5 26.5 7 32.5l5.5-6"></path></svg></span> </section> <section class="wklejka" aria-label="Nocna edycja"> <img src="../img/crema-still.webp" width="1800" height="2250" alt="Crema espresso w świetle punktowym na czarnym tle" fetchpriority="low" decoding="async"> </section>  <section class="editorial" aria-label="O ziarnie"> <div class="ed-grid"> <h2 class="pull rv">Siła w&nbsp;prostocie.</h2> <div class="ed-cols"> <div class="rv"> <p>Jedno pole na płaskowyżu Cerrado Mineiro, gdzie sawanna oddycha porą suchą. Owoce suszymy w&nbsp;całości na słońcu — obróbka natural pogłębia słodycz i&nbsp;nadaje kawie gęste, okrągłe ciało.</p> <p>Palona do średniego stopnia — tak, by rozgryźć karmel, nie przypalić owocu. Jedno ziarno, jedna data, sto opakowań.</p> </div> <table class="spec rv"> <tr><th scope="row">Region</th><td><i>Cerrado Mineiro</i>, Brazylia</td></tr> <tr><th scope="row">Wysokość</th><td>~1&nbsp;100&nbsp;m&nbsp;n.p.m.</td></tr> <tr><th scope="row">Obróbka</th><td>natural</td></tr> <tr><th scope="row">Skład</th><td>100% Arabica</td></tr> <tr><th scope="row">Opakowanie</th><td>250 g</td></tr> <tr><th scope="row">Data palenia</th><td>28.06.2026</td></tr> </table> </div> <div class="notes"> <h2 class="rv">Profil smaku</h2> <div class="note rv"><span class="t">mleczna czekolada</span><span class="d">zaokrąglona słodycz, aksamitny start</span></div> <div class="note rv"><span class="t">orzech laskowy</span><span class="d">prażony, maślany środek</span></div> <div class="note rv"><span class="t">karmel</span><span class="d">długi, słodki finisz</span></div> </div> <div class="buy2 rv" id="kup"> <div class="qty" role="group" aria-label="Ilość opakowań"><button type="button" class="qminus" aria-label="Zmniejsz ilość" disabled>−</button><span class="qv" aria-live="polite">1 × 250 g</span><button type="button" class="qplus" aria-label="Zwiększ ilość">+</button></div> <a class="brand-line" href="#kup" data-checkout><span class="q" lang="en">Sip the <i>Strength</i>, <i>Enjoy</i> the Treat.</span><span class="bl-price">Kup teraz — <span class="bl-total">59 zł</span> <em aria-hidden="true">→</em></span></a> </div> </div> </section> <div class="dawn" aria-hidden="true"></div> <section class="historia" aria-label="Nasza historia"> <div class="hist-grid"> <img class="rv" src="../img/historia.webp" width="1400" height="1400" alt="Opakowania kawy MANTO CAFE — srebrna torebka z rastrem i zielony bok" loading="lazy"> <div> <p class="hist-eyebrow rv">Nasza historia</p> <h2 class="rv">Codzienny rytuał, który daje energię.</h2> <p class="hist-sub rv">Miejsce, gdzie sportowa dynamika spotyka się ze spokojem slow life.</p> <p class="rv">Manto Cafe powstało z&nbsp;pasji do aktywnego stylu życia i&nbsp;tworzenia rzeczy naprawdę jakościowych — przemyślanych, spójnych i&nbsp;realnie działających. Każdy element ma znaczenie: ziarno, proces, smak i&nbsp;doświadczenie.</p> <p class="rv">Brazylia Monte Carmelo to ten sam rytuał w&nbsp;domowym wydaniu — wybrana przez nas i&nbsp;pakowana małymi partiami.</p> <a class="hist-link rv" href="https://mantocafe.pl">Poznaj kawiarnię — mantocafe.pl <span aria-hidden="true">→</span></a> </div> </div> </section> </main> <footer> <a class="wm" href="/" aria-label="MANTO CAFE — strona główna"><b>MANTO</b><i>CAFE</i><sup>®</sup></a> <nav aria-label="Linki"> <a href="https://mantocafe.pl">mantocafe.pl</a> <a href="https://www.instagram.com/mantocafe_/" aria-label="Instagram — @mantocafe_"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="17.8" cy="6.2" r="1.15" fill="currentColor" stroke="none"></circle></svg><span>@mantocafe_</span></a> <a href="/regulamin/">Regulamin</a> <a href="/polityka-prywatnosci/">Polityka prywatności</a> </nav> <span class="copy">© MANTOCAFE 2026 · Warszawa</span> </footer> <script>
+</style></head> <body>    <main> <section class="hero" aria-label="Brazylia Monte Carmelo — kup kawę"> <h1 class="sr-only">Brazylia Monte Carmelo — kawa ziarnista 100% Arabica | MANTOCAFE</h1> <a class="wm hero-wm" href="/" aria-label="MANTO CAFE — strona główna"><b>MANTO</b><i>CAFE</i><sup>®</sup></a> <div class="stage"> <span class="word l1" aria-hidden="true">Brazylia</span> <div class="bagwrap l2"><img src="../img/bag-cutout.webp" width="618" height="1100" alt="Opakowanie kawy MANTO CAFE — srebrna torebka z rastrem przechodzącym w zieleń, zawieszka Brazylia Monte Carmelo" fetchpriority="high"><a class="fliptag" href="#kup" data-checkout id="maincta" aria-label="Brazylia Monte Carmelo — kup teraz, 59 zł"><span class="flipin"><span class="ftf"><img src="../img/fliptag-front.webp" alt="" fetchpriority="high"></span><span class="ftb" aria-hidden="true"><span class="btxt"><em>Kup teraz</em><span class="brule"></span><b>59 zł</b></span></span></span></a></div> </div> <p class="cat l3">Kawa ziarnista · 100% Arabica</p> <div class="buyzone l3"> <a class="heroline" href="#kup" data-checkout>59 zł — kup teraz</a> <div class="qty heroqty" role="group" aria-label="Ilość opakowań" aria-hidden="true"><button type="button" class="qminus" aria-label="Zmniejsz ilość" disabled tabindex="-1">−</button><span class="qv" aria-live="polite">1 × 250 g</span><button type="button" class="qplus" aria-label="Zwiększ ilość" tabindex="-1">+</button><a class="hgo" href="#kup" data-checkout tabindex="-1">Kup — <span class="h-total">59 zł</span> <em aria-hidden="true">→</em></a></div> </div> <span class="scrollhint" aria-hidden="true"><svg width="10" height="25" viewBox="0 0 14 34" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 0v31M1.5 26.5 7 32.5l5.5-6"></path></svg></span> </section> <section class="wklejka" aria-label="Nocna edycja"> <img src="../img/crema-still.webp" width="1800" height="2250" alt="Crema espresso w świetle punktowym na czarnym tle" fetchpriority="low" decoding="async"> </section>  <section class="editorial" aria-label="O ziarnie"> <div class="ed-grid"> <h2 class="pull rv">Siła w&nbsp;prostocie.</h2> <div class="ed-cols"> <div class="rv"> <p>Jedno pole na płaskowyżu Cerrado Mineiro, gdzie sawanna oddycha porą suchą. Owoce suszymy w&nbsp;całości na słońcu — obróbka natural pogłębia słodycz i&nbsp;nadaje kawie gęste, okrągłe ciało.</p> <p>Palona do średniego stopnia — tak, by rozgryźć karmel, nie przypalić owocu. Jedno ziarno, jedna data, sto opakowań.</p> </div> <table class="spec rv"> <tr><th scope="row">Region</th><td><i>Cerrado Mineiro</i>, Brazylia</td></tr> <tr><th scope="row">Wysokość</th><td>~1&nbsp;100&nbsp;m&nbsp;n.p.m.</td></tr> <tr><th scope="row">Obróbka</th><td>natural</td></tr> <tr><th scope="row">Skład</th><td>100% Arabica</td></tr> <tr><th scope="row">Opakowanie</th><td>250 g</td></tr> <tr><th scope="row">Data palenia</th><td>28.06.2026</td></tr> </table> </div> <div class="notes"> <h2 class="rv">Profil smaku</h2> <div class="note rv"><span class="t">mleczna czekolada</span><span class="d">zaokrąglona słodycz, aksamitny start</span></div> <div class="note rv"><span class="t">orzech laskowy</span><span class="d">prażony, maślany środek</span></div> <div class="note rv"><span class="t">karmel</span><span class="d">długi, słodki finisz</span></div> </div> <div class="buy2 rv" id="kup"> <div class="qty" role="group" aria-label="Ilość opakowań"><button type="button" class="qminus" aria-label="Zmniejsz ilość" disabled>−</button><span class="qv" aria-live="polite">1 × 250 g</span><button type="button" class="qplus" aria-label="Zwiększ ilość">+</button></div> <a class="brand-line" href="#kup" data-checkout><span class="q" lang="en">Sip the <i>Strength</i>, <i>Enjoy</i> the Treat.</span><span class="bl-price">Kup teraz — <span class="bl-total">59 zł</span> <em aria-hidden="true">→</em></span></a> </div> </div> </section> <div class="dawn" aria-hidden="true"></div> <section class="historia" aria-label="Nasza historia"> <div class="hist-grid"> <img class="rv" src="../img/historia.webp" width="1400" height="1400" alt="Opakowania kawy MANTO CAFE — srebrna torebka z rastrem i zielony bok" loading="lazy"> <div> <p class="hist-eyebrow rv">Nasza historia</p> <h2 class="rv">Codzienny rytuał, który daje energię.</h2> <p class="hist-sub rv">Miejsce, gdzie sportowa dynamika spotyka się ze spokojem slow life.</p> <p class="rv">Manto Cafe powstało z&nbsp;pasji do aktywnego stylu życia i&nbsp;tworzenia rzeczy naprawdę jakościowych — przemyślanych, spójnych i&nbsp;realnie działających. Każdy element ma znaczenie: ziarno, proces, smak i&nbsp;doświadczenie.</p> <p class="rv">Brazylia Monte Carmelo to ten sam rytuał w&nbsp;domowym wydaniu — wybrana przez nas i&nbsp;pakowana małymi partiami.</p> <a class="hist-link rv" href="https://mantocafe.pl">Poznaj kawiarnię — mantocafe.pl <span aria-hidden="true">→</span></a> </div> </div> </section> </main> <footer> <a class="wm" href="/" aria-label="MANTO CAFE — strona główna"><b>MANTO</b><i>CAFE</i><sup>®</sup></a> <nav aria-label="Linki"> <a href="https://mantocafe.pl">mantocafe.pl</a> <a href="https://www.instagram.com/mantocafe_/" aria-label="Instagram — @mantocafe_"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="17.8" cy="6.2" r="1.15" fill="currentColor" stroke="none"></circle></svg><span>@mantocafe_</span></a> <a href="/regulamin/">Regulamin</a> <a href="/polityka-prywatnosci/">Polityka prywatności</a> </nav> <span class="copy">© MANTOCAFE 2026 · Warszawa</span> </footer> <script>
   const bagImg=document.querySelector('.bagwrap img');
   const bagReady=(bagImg&&bagImg.decode)?bagImg.decode().catch(()=>{}):Promise.resolve();
   Promise.race([bagReady,new Promise(r=>setTimeout(r,2000))]).then(()=>requestAnimationFrame(()=>document.documentElement.classList.add('loaded')));
@@ -219,19 +230,35 @@
   }else{document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'))}
 
   const PRICE=59, QMAX=10;
-  const qv=document.querySelector('.qv'), qm=document.querySelector('.qminus'),
-        qp=document.querySelector('.qplus'), tot=document.querySelector('.bl-total');
-  if(qv&&qm&&qp&&tot){
-    let q=1;
-    const paint=()=>{
-      qv.textContent=q+' × 250 g';
-      tot.textContent=(PRICE*q)+' zł';
-      qm.disabled=q<=1; qp.disabled=q>=QMAX;
-      document.querySelectorAll('[data-checkout]').forEach(a=>a.dataset.qty=q);
+  let q=1;
+  const qvs=[...document.querySelectorAll('.qv')], qms=[...document.querySelectorAll('.qminus')],
+        qps=[...document.querySelectorAll('.qplus')], tots=[...document.querySelectorAll('.bl-total,.h-total')];
+  const paint=()=>{
+    qvs.forEach(el=>el.textContent=q+' × 250 g');
+    tots.forEach(el=>el.textContent=(PRICE*q)+' zł');
+    qms.forEach(b=>b.disabled=q<=1); qps.forEach(b=>b.disabled=q>=QMAX);
+    document.querySelectorAll('[data-checkout]').forEach(a=>a.dataset.qty=q);
+  };
+  qms.forEach(b=>b.addEventListener('click',()=>{if(q>1){q--;paint()}}));
+  qps.forEach(b=>b.addEventListener('click',()=>{if(q<QMAX){q++;paint()}}));
+  paint();
+
+  // hero: first buy intent slides the quantity picker in (Esc restores the plain line)
+  const buyzone=document.querySelector('.buyzone'), heroline=document.querySelector('.heroline'),
+        heroqty=document.querySelector('.heroqty'), maincta=document.getElementById('maincta');
+  if(buyzone&&heroline&&heroqty){
+    const focusables=[...heroqty.querySelectorAll('button,a')];
+    const setOpen=on=>{
+      buyzone.classList.toggle('qopen',on);
+      heroqty.setAttribute('aria-hidden',on?'false':'true');
+      focusables.forEach(el=>{if(el.tagName==='A'||!el.disabled)el.tabIndex=on?0:-1});
     };
-    qm.addEventListener('click',()=>{if(q>1){q--;paint()}});
-    qp.addEventListener('click',()=>{if(q<QMAX){q++;paint()}});
-    paint();
+    const openPicker=e=>{e.preventDefault();setOpen(true);heroqty.querySelector('.qplus').focus()};
+    heroline.addEventListener('click',openPicker);
+    if(maincta)maincta.addEventListener('click',e=>{if(!buyzone.classList.contains('qopen'))openPicker(e)});
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&buyzone.classList.contains('qopen')){setOpen(false);heroline.focus()}
+    });
   }
 </script>  
 <script id="ocean-film-js">

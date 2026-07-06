@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>MANTOCAFE — koszyk (prototyp na przyszłość)</title>
+<meta name="description" content="Prototyp doświadczenia koszyka MANTOCAFE — na wypadek rozrostu sklepu do wielu produktów.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../fonts/playfair-italic-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Playfair Display";src:url(../fonts/playfair-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url(../fonts/playfair-italic-400.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+:root{
+  --ink:#0E241F; --deep:#0B1613; --green:#17352E; --cream:#EFE9DF;
+  --sub:rgba(239,233,223,.6); --hair:rgba(239,233,223,.16);
+  --serif:Didot,"Bodoni 72","Playfair Display",Georgia,serif;
+  --grot:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.2,1); --dur-tap:.15s; --dur-hint:.2s; --dur-slide:.25s; --dur-reveal:.5s;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:linear-gradient(180deg,var(--deep) 0%,var(--ink) 45%,var(--deep) 100%);color:var(--cream);
+  font:400 16px/1.55 var(--grot);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;min-height:100svh}
+.wrap{max-width:1080px;margin:0 auto;padding:clamp(24px,4vw,56px)}
+
+/* ── header ─────────────────────────────────────── */
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:clamp(30px,6vh,64px)}
+.wm{color:var(--cream);text-decoration:none;font-size:1rem}
+.wm b{font-weight:800;letter-spacing:-.01em}
+.wm i{font-family:var(--serif);font-style:italic;font-size:1.12em}
+.wm sup{font-size:.42em;vertical-align:super}
+.proto{font:600 .62rem/1 var(--grot);letter-spacing:.2em;text-transform:uppercase;color:var(--sub);
+  border:1px solid var(--hair);border-radius:999px;padding:7px 12px;white-space:nowrap}
+
+/* ── intro ──────────────────────────────────────── */
+h1{font:400 clamp(1.9rem,4.6vw,3.1rem)/1.12 var(--serif);margin:0 0 .35em}
+h1 em{font-style:italic}
+.lede{color:var(--sub);max-width:58ch;margin:0 0 clamp(30px,6vh,60px)}
+
+/* ── shelf ──────────────────────────────────────── */
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px}
+.card{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:rgba(11,22,19,.5)}
+.stage{position:relative;background:radial-gradient(120% 90% at 50% 30%,#1b2f29 0%,#0B1613 78%);
+  display:grid;place-items:center;padding:34px 20px 26px}
+.stage img{width:min(46%,150px);height:auto;filter:drop-shadow(0 18px 22px rgba(0,0,0,.45))}
+.card.sample .stage img{filter:grayscale(.85) brightness(.92) drop-shadow(0 18px 22px rgba(0,0,0,.45))}
+.badge{position:absolute;top:12px;left:12px;font:600 .58rem/1 var(--grot);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--sub);border:1px solid var(--hair);border-radius:999px;padding:5px 9px}
+.cbody{padding:18px 20px 22px;border-top:1px solid var(--hair)}
+.cname{font:400 1.35rem/1.2 var(--serif);font-style:italic;margin:0 0 2px}
+.cmeta{font:600 .62rem/1.6 var(--grot);letter-spacing:.18em;text-transform:uppercase;color:var(--sub);margin:0 0 16px}
+.cfoot{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.price{font:600 .82rem/1 var(--grot);letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.add{font:600 .68rem/1 var(--grot);letter-spacing:.18em;text-transform:uppercase;color:var(--cream);
+  background:none;border:1px solid var(--hair);border-radius:999px;padding:13px 16px;cursor:pointer;
+  transition:border-color var(--dur-tap) var(--ease),background var(--dur-tap) var(--ease),color var(--dur-tap) var(--ease)}
+.add:hover{border-color:var(--cream)}
+.add:active{background:var(--cream);color:var(--ink)}
+.add:focus-visible,.chip:focus-visible,.x:focus-visible,.qbtn:focus-visible,.checkout:focus-visible,.overlay-note a:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+
+/* ── cart chip ──────────────────────────────────── */
+.chip{position:fixed;top:18px;right:18px;z-index:40;display:flex;align-items:center;gap:9px;
+  font:600 .66rem/1 var(--grot);letter-spacing:.2em;text-transform:uppercase;color:var(--cream);
+  background:rgba(14,36,31,.82);border:1px solid var(--hair);border-radius:999px;padding:12px 16px;cursor:pointer;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transition:border-color var(--dur-tap) var(--ease)}
+.chip:hover{border-color:var(--cream)}
+.chip .n{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:999px;
+  background:var(--cream);color:var(--ink);font:700 .62rem/1 var(--grot);letter-spacing:0;padding:0 5px}
+.chip svg{display:block}
+
+/* ── drawer ─────────────────────────────────────── */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(7,12,10,.55);opacity:0;visibility:hidden;
+  transition:opacity var(--dur-slide) var(--ease),visibility 0s linear var(--dur-slide)}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:60;width:min(430px,100vw);display:flex;flex-direction:column;
+  background:linear-gradient(180deg,#10261F 0%,#0C1B16 100%);border-left:1px solid var(--hair);
+  transform:translateX(102%);transition:transform var(--dur-slide) var(--ease);
+  box-shadow:-30px 0 60px rgba(0,0,0,.35)}
+body.cart-open .overlay{opacity:1;visibility:visible;transition:opacity var(--dur-slide) var(--ease)}
+body.cart-open .drawer{transform:none}
+.dhead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:26px 26px 18px;border-bottom:1px solid var(--hair)}
+.dhead h2{font:400 1.7rem/1 var(--serif);font-style:italic;margin:0}
+.x{background:none;border:0;color:var(--sub);font:300 1.5rem/1 var(--grot);cursor:pointer;padding:8px 10px;margin:-8px -10px 0 0;
+  transition:color var(--dur-tap) var(--ease)}
+.x:hover{color:var(--cream)}
+.dbody{flex:1;overflow-y:auto;padding:6px 26px;overscroll-behavior:contain}
+.row{display:grid;grid-template-columns:56px 1fr auto;gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid var(--hair)}
+.row .thumb{width:56px;height:66px;display:grid;place-items:center;background:radial-gradient(100% 90% at 50% 30%,#1b2f29 0%,#0B1613 85%);border-radius:6px}
+.row .thumb img{width:60%;height:auto}
+.row.sample .thumb img{filter:grayscale(.85) brightness(.92)}
+.rname{font:400 1.06rem/1.25 var(--serif);font-style:italic;margin:0 0 3px}
+.rmeta{font:600 .58rem/1.5 var(--grot);letter-spacing:.16em;text-transform:uppercase;color:var(--sub)}
+.rright{display:grid;justify-items:end;gap:9px}
+.rtotal{font:600 .8rem/1 var(--grot);letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.qrow{display:flex;align-items:center;gap:10px}
+.qbtn{width:34px;height:34px;background:none;border:1px solid var(--hair);border-radius:999px;color:var(--cream);
+  font:300 1.05rem/1 var(--grot);cursor:pointer;transition:border-color var(--dur-tap) var(--ease),opacity var(--dur-tap) var(--ease)}
+.qbtn:hover{border-color:var(--cream)}
+.qbtn[disabled]{opacity:.35;cursor:default}
+.qbtn[disabled]:hover{border-color:var(--hair)}
+.qn{min-width:2ch;text-align:center;font:600 .8rem/1 var(--grot);font-variant-numeric:tabular-nums}
+.rm{background:none;border:0;color:var(--sub);font:400 .62rem/1 var(--grot);letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;padding:6px 0;transition:color var(--dur-tap) var(--ease)}
+.rm:hover{color:var(--cream)}
+.empty{padding:70px 10px;text-align:center}
+.empty p{font:400 1.5rem/1.3 var(--serif);font-style:italic;margin:0 0 10px}
+.empty a{color:var(--sub);font:600 .68rem/1 var(--grot);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+  border-bottom:1px solid var(--hair);padding-bottom:5px;transition:color var(--dur-tap) var(--ease)}
+.empty a:hover{color:var(--cream)}
+.dfoot{padding:20px 26px 26px;border-top:1px solid var(--hair)}
+.sumrow{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.sumrow .l{font:600 .66rem/1 var(--grot);letter-spacing:.2em;text-transform:uppercase;color:var(--sub)}
+.sumrow .v{font:400 1.5rem/1 var(--serif);font-variant-numeric:tabular-nums}
+.shipnote{font-size:.74rem;color:var(--sub);margin:0 0 18px}
+.checkout{display:block;width:100%;text-align:center;font:600 .74rem/1 var(--grot);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream);background:none;border:1px solid rgba(239,233,223,.4);border-radius:999px;padding:17px 20px;cursor:pointer;
+  transition:background var(--dur-hint) var(--ease),color var(--dur-hint) var(--ease),border-color var(--dur-hint) var(--ease)}
+.checkout:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+
+/* ── toast (prototype: shows the permalink that WOULD open) ── */
+.toast{position:fixed;left:50%;bottom:26px;z-index:70;transform:translate(-50%,14px);opacity:0;visibility:hidden;
+  max-width:min(620px,92vw);background:rgba(14,36,31,.94);border:1px solid var(--hair);border-radius:10px;
+  padding:13px 18px;font:400 .78rem/1.5 ui-monospace,Menlo,monospace;color:var(--cream);
+  transition:opacity var(--dur-slide) var(--ease),transform var(--dur-slide) var(--ease),visibility 0s linear var(--dur-slide);
+  overflow-wrap:anywhere}
+.toast.on{opacity:1;visibility:visible;transform:translate(-50%,0);transition:opacity var(--dur-slide) var(--ease),transform var(--dur-slide) var(--ease)}
+.toast b{color:#9FCDB0;font-weight:600}
+
+footer{margin-top:clamp(40px,8vh,80px);padding-top:18px;border-top:1px solid var(--hair);color:var(--sub);font-size:.78rem}
+footer a{color:var(--cream)}
+
+@media (max-width:620px){
+  .chip{top:auto;bottom:18px;right:18px}
+  .dhead{padding:22px 20px 16px}.dbody{padding:4px 20px}.dfoot{padding:16px 20px 22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .drawer,.overlay,.toast,.chip,.add,.qbtn,.checkout,.x,.rm{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="wm" href="ocean-film.html" aria-label="MANTO CAFE — wróć do strony sklepu"><b>MANTO</b><i>CAFE</i><sup>®</sup></a>
+    <span class="proto">Prototyp · funkcja na przyszłość</span>
+  </header>
+
+  <h1>Koszyk, <em>zanim będzie potrzebny.</em></h1>
+  <p class="lede">Sklep z jednym produktem świadomie nie ma koszyka — przycisk prowadzi prosto do kasy. Ten prototyp czeka na dzień, w którym pojawi się drugi produkt: szuflada, ilości, suma i przejście do Shopify Checkout jednym linkiem (bez własnego backendu). Druga kawa poniżej jest przykładowa.</p>
+
+  <div class="shelf">
+    <article class="card">
+      <div class="stage"><img src="../img/bag-cutout.webp" width="618" height="1100" alt="Brazylia Monte Carmelo — srebrna torebka MANTOCAFE"></div>
+      <div class="cbody">
+        <h2 class="cname">Brazylia Monte Carmelo</h2>
+        <p class="cmeta">100% Arabica · natural · 250 g</p>
+        <div class="cfoot">
+          <span class="price">59 zł</span>
+          <button class="add" type="button" data-add="brazylia">Dodaj do koszyka</button>
+        </div>
+      </div>
+    </article>
+    <article class="card sample">
+      <div class="stage"><span class="badge">Przykład — wkrótce?</span><img src="../img/bag-cutout.webp" width="618" height="1100" alt="Przykładowy przyszły produkt (ilustracja)"></div>
+      <div class="cbody">
+        <h2 class="cname">Kolumbia Huila</h2>
+        <p class="cmeta">100% Arabica · washed · 250 g · przykładowy produkt</p>
+        <div class="cfoot">
+          <span class="price">63 zł</span>
+          <button class="add" type="button" data-add="kolumbia">Dodaj do koszyka</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer>Prototyp UX — dane przykładowe, ceny robocze. Docelowo: pozycje trafiają do Shopify przez cart-permalink <a href="#" onclick="return false">/cart/ID:ilość,ID:ilość</a> — zero własnego backendu. Wersja sklepu: <a href="ocean-film.html">strona główna</a>.</footer>
+</div>
+
+<button class="chip" type="button" aria-haspopup="dialog" aria-controls="drawer">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16l-1.3 12.2a2 2 0 0 1-2 1.8H7.3a2 2 0 0 1-2-1.8L4 7Z"/><path d="M8.5 9V6.5a3.5 3.5 0 0 1 7 0V9"/></svg>
+  Koszyk <span class="n" aria-live="polite">0</span>
+</button>
+
+<div class="overlay" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Koszyk">
+  <div class="dhead">
+    <h2>Koszyk</h2>
+    <button class="x" type="button" aria-label="Zamknij koszyk">×</button>
+  </div>
+  <div class="dbody"></div>
+  <div class="dfoot">
+    <div class="sumrow"><span class="l">Razem</span><span class="v" aria-live="polite">0 zł</span></div>
+    <p class="shipnote">Dostawa (InPost) i płatność — bezpieczny Shopify Checkout.</p>
+    <button class="checkout" type="button">Do kasy <span aria-hidden="true">→</span></button>
+  </div>
+</aside>
+<div class="toast" role="status"></div>
+
+<script>
+(() => {
+  const CATALOG = {
+    brazylia: { name: 'Brazylia Monte Carmelo', meta: '100% Arabica · 250 g', price: 59, variant: 'VARIANT_ID_BRAZYLIA', sample: false },
+    kolumbia: { name: 'Kolumbia Huila', meta: 'przykładowy produkt · 250 g', price: 63, variant: 'VARIANT_ID_PRZYKLAD', sample: true },
+  };
+  const QMAX = 10, KEY = 'manto-cart-proto';
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { cart = {}; }
+
+  const chip = document.querySelector('.chip'), chipN = chip.querySelector('.n');
+  const overlay = document.querySelector('.overlay'), drawer = document.querySelector('.drawer');
+  const dbody = drawer.querySelector('.dbody'), dfoot = drawer.querySelector('.dfoot');
+  const sumV = drawer.querySelector('.sumrow .v'), closeBtn = drawer.querySelector('.x');
+  const toast = document.querySelector('.toast');
+  let lastFocus = null, toastT = 0;
+
+  const count = () => Object.values(cart).reduce((a, b) => a + b, 0);
+  const total = () => Object.entries(cart).reduce((a, [id, q]) => a + CATALOG[id].price * q, 0);
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) {} };
+
+  function render() {
+    chipN.textContent = count();
+    sumV.textContent = total() + ' zł';
+    dfoot.style.display = count() ? '' : 'none';
+    if (!count()) {
+      dbody.innerHTML = '<div class="empty"><p>Koszyk jest pusty.</p><a href="#" class="back">Wróć do kawy →</a></div>';
+      dbody.querySelector('.back').addEventListener('click', e => { e.preventDefault(); close(); });
+      return;
+    }
+    dbody.innerHTML = '';
+    for (const [id, q] of Object.entries(cart)) {
+      const p = CATALOG[id];
+      const row = document.createElement('div');
+      row.className = 'row' + (p.sample ? ' sample' : '');
+      row.innerHTML =
+        '<div class="thumb"><img src="../img/bag-cutout.webp" alt=""></div>' +
+        '<div><p class="rname">' + p.name + '</p><p class="rmeta">' + p.meta + ' · ' + p.price + ' zł</p>' +
+        '<div class="qrow"><button class="qbtn qm" aria-label="Zmniejsz ilość">−</button><span class="qn" aria-live="polite">' + q + '</span>' +
+        '<button class="qbtn qp" aria-label="Zwiększ ilość">+</button></div></div>' +
+        '<div class="rright"><span class="rtotal">' + (p.price * q) + ' zł</span><button class="rm">Usuń</button></div>';
+      row.querySelector('.qm').disabled = q <= 1;
+      row.querySelector('.qp').disabled = q >= QMAX;
+      row.querySelector('.qm').addEventListener('click', () => { if (cart[id] > 1) { cart[id]--; save(); render(); } });
+      row.querySelector('.qp').addEventListener('click', () => { if (cart[id] < QMAX) { cart[id]++; save(); render(); } });
+      row.querySelector('.rm').addEventListener('click', () => { delete cart[id]; save(); render(); });
+      dbody.appendChild(row);
+    }
+  }
+
+  function open() {
+    lastFocus = document.activeElement;
+    document.body.classList.add('cart-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    closeBtn.focus();
+  }
+  function close() {
+    document.body.classList.remove('cart-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  chip.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', close);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('cart-open')) close(); });
+
+  document.querySelectorAll('[data-add]').forEach(btn => btn.addEventListener('click', () => {
+    const id = btn.dataset.add;
+    cart[id] = Math.min(QMAX, (cart[id] || 0) + 1);
+    save(); render(); open();
+  }));
+
+  drawer.querySelector('.checkout').addEventListener('click', () => {
+    // production: location.href = 'https://SKLEP.myshopify.com/cart/' + items — one link, no backend
+    const items = Object.entries(cart).map(([id, q]) => CATALOG[id].variant + ':' + q).join(',');
+    toast.innerHTML = '<b>Shopify Checkout (po podpięciu sklepu):</b><br>/cart/' + items;
+    toast.classList.add('on');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => toast.classList.remove('on'), 4200);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
